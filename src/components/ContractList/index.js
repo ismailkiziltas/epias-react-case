@@ -1,4 +1,3 @@
-import styles from './ContractList.module.scss'
 import Section from "components/Section";
 
 const ContractList = () => {

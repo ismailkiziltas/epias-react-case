@@ -1,5 +1,4 @@
 import Section from "components/Section"
-import styles from "./ContractNew.module.scss"
 
 const ContractNew = () => {
     return (
