@@ -1,0 +1,17 @@
+.userAccount {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--white-color);
+    cursor: pointer;
+
+    &Badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--white-color);
+    }
+}
