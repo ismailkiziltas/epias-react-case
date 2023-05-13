@@ -8,3 +8,19 @@ body {
     font-family: var(--font-family);
     font-size: var(--font-size);
 }
+
+button,
+select,
+input {
+    border: 0;
+    background-color: var(--white-color);
+    font-family: var(--font-family);
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+button {
+    cursor: pointer;
+}

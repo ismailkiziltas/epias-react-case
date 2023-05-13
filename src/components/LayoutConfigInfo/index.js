@@ -1,8 +1,6 @@
-import Section from 'components/Section'
+import { Section } from "components";
 
 const LayoutConfigInfo = () => {
-    return (
-        <Section>LayoutConfigInfo</Section>
-    )
-}
-export default LayoutConfigInfo
+  return <Section>LayoutConfigInfo</Section>;
+};
+export default LayoutConfigInfo;

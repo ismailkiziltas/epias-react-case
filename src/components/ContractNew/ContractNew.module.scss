@@ -1,0 +1,18 @@
+.newContract {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 15px;
+
+    &Form {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        input {
+            flex: 1;
+        }
+    }
+}
