@@ -11,7 +11,8 @@ const ContractNew = () => {
 
   const formHandle = (e) => {
     const formData = Object.fromEntries(new FormData(e.target).entries());
-    dispatch(addContract(formData));
+    const isFormValid = Object.values(formData).every((value) => value !== "");
+    isFormValid && dispatch(addContract(formData));
     e.preventDefault();
   };
 
@@ -40,7 +41,7 @@ const ContractNew = () => {
           </form>
         )}
         <Button type="button" onClick={() => setShowForm(!showForm)}>
-          Yeni Ekle
+          {showForm ? "Vazgeç" : "Yeni Ekle"}
         </Button>
       </div>
     </Section>

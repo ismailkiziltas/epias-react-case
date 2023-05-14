@@ -12,6 +12,7 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
+    "react-split": "^2.0.14",
     "react-split-grid": "^1.0.4",
     "sass": "^1.62.1",
     "web-vitals": "^2.1.4"

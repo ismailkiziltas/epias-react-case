@@ -1,12 +1,10 @@
 .split {
     display: grid;
-    grid-template-rows: 1fr 10px 1fr;
-    grid-template-columns: 1fr 10px 1fr;
     min-height: calc(100vh - 139px);
 
     &-gutter-col,
     &-gutter-row {
-        padding: 6px;
+        padding: 4px;
         cursor: col-resize;
     }
 

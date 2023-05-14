@@ -1,7 +1,11 @@
 .footer {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 20px 30px;
     border-top: 1px solid var(--border-color);
+    background-color: var(--white-color);
+    z-index: 99;
 }
