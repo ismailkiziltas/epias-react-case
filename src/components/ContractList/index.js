@@ -42,7 +42,7 @@ const ContractList = () => {
       <table className="table">
         <thead>
           <tr>
-            {selectedTitles.map((item, index) => (
+            {tableTitles.map((item, index) => (
               <th key={index}>{item.title} </th>
             ))}
           </tr>
