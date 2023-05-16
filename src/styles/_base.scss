@@ -29,3 +29,12 @@ button {
 ul {
     list-style: none;
 }
+
+select {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: url("../assets/img/icon-chevron-down.svg") no-repeat right 10px center;
+    padding: 10px 40px 10px 15px;
+    appearance: none;
+    cursor: pointer;
+}

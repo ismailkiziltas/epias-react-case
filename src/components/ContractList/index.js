@@ -1,23 +1,54 @@
 import { Section } from "components";
 import { contractData } from "__mocks__/contract";
+import { TableFilter } from "components";
+import { useEffect, useState } from "react";
 
 const ContractList = () => {
+  const [selectedTitles, setSelectedTitles] = useState([]);
+
+  const tableTitles = [
+    {
+      id: 1,
+      title: "Id",
+    },
+    {
+      id: 2,
+      title: "Kontrat",
+    },
+    {
+      id: 3,
+      title: "Teklif",
+    },
+    {
+      id: 4,
+      title: "Data",
+    },
+  ];
+
+  const handleTableCol = (item) => {
+    const hasTitle = selectedTitles.some((title) => title.id === item.id);
+
+    if (!hasTitle) {
+      setSelectedTitles((prevTitle) => [...prevTitle, item]);
+      return;
+    }
+
+    setSelectedTitles(selectedTitles.filter((title) => title.id !== item.id));
+  };
+
+  useEffect(() => {
+    setSelectedTitles(tableTitles);
+  }, []);
+
   return (
     <Section>
-      <div className="table-filter">
-        <select>
-          <option value={0}>Kontrat Seçiniz</option>
-          <option value={2019}>2019</option>
-          <option value={2018}>2018</option>
-        </select>
-      </div>
+      <TableFilter titles={tableTitles} onChange={handleTableCol} />
       <table className="table">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Kontrat</th>
-            <th>Teklif</th>
-            <th>Data</th>
+            {selectedTitles.map((item, index) => (
+              <th key={index}>{item.title} </th>
+            ))}
           </tr>
         </thead>
         <tbody>

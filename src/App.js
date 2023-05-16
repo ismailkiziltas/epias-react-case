@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { changedLayout } from "store/savedLayout";
 import Split from "react-split-grid";
 import Header from "components/Header";
 import Footer from "components/Footer";
@@ -6,7 +9,6 @@ import Section from "components/Section";
 import ContractList from "components/ContractList";
 import ContractNew from "components/ContractNew";
 import LayoutConfigInfo from "components/LayoutConfigInfo";
-import { useState, useEffect } from "react";
 
 const App = () => {
   const [rowSizes, setRowSizes] = useState(
@@ -15,6 +17,8 @@ const App = () => {
   const [colSizes, setColSizes] = useState(
     localStorage.getItem("colSizes") || "1fr 10px 1fr"
   );
+
+  const dispatch = useDispatch();
 
   const handleDrag = (direction, track, style) => {
     if (direction === "column") {
@@ -26,9 +30,12 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("Changed");
-  }, [rowSizes, colSizes]);
+  const watchChange = () => {
+    dispatch(changedLayout(true));
+    setTimeout(() => {
+      dispatch(changedLayout(false));
+    }, 1000);
+  };
 
   return (
     <div>
@@ -38,6 +45,7 @@ const App = () => {
           gridTemplateColumns={colSizes}
           gridTemplateRows={rowSizes}
           onDrag={handleDrag}
+          onDragEnd={watchChange}
           render={({ getGridProps, getGutterProps }) => (
             <div className="split" {...getGridProps()}>
               <ContractList />

@@ -1,6 +1,7 @@
 export { default as Content } from "./Content";
 export { default as ContractList } from "./ContractList";
 export { default as ContractNew } from "./ContractNew";
+export { default as TableFilter } from "./TableFilter";
 export { default as Footer } from "./Footer";
 export { default as Button } from "./Forms/Button";
 export { default as Input } from "./Forms/Input";
