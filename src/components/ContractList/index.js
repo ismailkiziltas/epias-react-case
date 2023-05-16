@@ -1,7 +1,7 @@
 import { Section } from "components";
 import { contractData } from "__mocks__/contract";
 import { TableFilter } from "components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ContractList = () => {
   const [selectedTitles, setSelectedTitles] = useState([]);
@@ -35,10 +35,6 @@ const ContractList = () => {
 
     setSelectedTitles(selectedTitles.filter((title) => title.id !== item.id));
   };
-
-  useEffect(() => {
-    setSelectedTitles(tableTitles);
-  }, []);
 
   return (
     <Section>
