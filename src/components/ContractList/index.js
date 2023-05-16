@@ -1,44 +1,15 @@
+import { useState } from "react";
 import { Section } from "components";
 import { contractData } from "__mocks__/contract";
+import { tableTitles } from "__mocks__/tableTitles";
 import { TableFilter } from "components";
-import { useState } from "react";
 
 const ContractList = () => {
-  const [selectedTitles, setSelectedTitles] = useState([]);
-
-  const tableTitles = [
-    {
-      id: 1,
-      title: "Id",
-    },
-    {
-      id: 2,
-      title: "Kontrat",
-    },
-    {
-      id: 3,
-      title: "Teklif",
-    },
-    {
-      id: 4,
-      title: "Data",
-    },
-  ];
-
-  const handleTableCol = (item) => {
-    const hasTitle = selectedTitles.some((title) => title.id === item.id);
-
-    if (!hasTitle) {
-      setSelectedTitles((prevTitle) => [...prevTitle, item]);
-      return;
-    }
-
-    setSelectedTitles(selectedTitles.filter((title) => title.id !== item.id));
-  };
+  const [selectedContractYear, setSelectedContractYear] = useState(0);
 
   return (
     <Section>
-      <TableFilter titles={tableTitles} onChange={handleTableCol} />
+      <TableFilter setSelectedContractYear={setSelectedContractYear} />
       <table className="table">
         <thead>
           <tr>
@@ -48,14 +19,28 @@ const ContractList = () => {
           </tr>
         </thead>
         <tbody>
-          {contractData.map((item, index) => (
-            <tr key={index}>
-              <td>{item.id}</td>
-              <td>{item.contract}</td>
-              <td>{item.offer}</td>
-              <td>{item.data}</td>
-            </tr>
-          ))}
+          {Number(selectedContractYear) === 0
+            ? contractData.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.id}</td>
+                  <td>{item.contract}</td>
+                  <td>{item.offer}</td>
+                  <td>{item.data}</td>
+                </tr>
+              ))
+            : contractData
+                .filter(
+                  (contract) =>
+                    contract.contract === Number(selectedContractYear)
+                )
+                .map((dataItem, idx) => (
+                  <tr key={idx}>
+                    <td>{dataItem.id}</td>
+                    <td>{dataItem.contract}</td>
+                    <td>{dataItem.offer}</td>
+                    <td>{dataItem.data}</td>
+                  </tr>
+                ))}
         </tbody>
       </table>
     </Section>

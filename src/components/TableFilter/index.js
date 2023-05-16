@@ -3,10 +3,10 @@ import { FiUpload } from "react-icons/fi";
 import { HiPlus } from "react-icons/hi";
 import styles from "./TableFilter.module.scss";
 
-const TableFilter = ({ titles, onChange }) => {
+const TableFilter = ({ setSelectedContractYear }) => {
   return (
     <div className={styles.tableFilter}>
-      <select>
+      <select onChange={(e) => setSelectedContractYear(e.target.value)}>
         <option value={0}>Kontrat Seçiniz</option>
         <option value={2019}>2019</option>
         <option value={2018}>2018</option>

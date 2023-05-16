@@ -59,7 +59,7 @@ const App = () => {
                 className="split-gutter-row gutter-row-1"
                 {...getGutterProps("row", 1)}
               />
-              <Section></Section>
+              <Section>Section 4</Section>
             </div>
           )}
         />
